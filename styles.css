@@ -1,0 +1,267 @@
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "PT Serif", serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+}
+
+img {
+  width: 500px;
+  border-radius: 15px;
+}
+
+nav,
+main,
+footer {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  height: 500px;
+  background-image: url("smanjene slike/background-pool-homepagewebp.webp"),
+    linear-gradient(rgba(6, 49, 6, 0.5), rgba(6, 49, 6, 0.5));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  background-blend-mode: darken;
+  margin-bottom: 50px;
+}
+
+nav {
+  align-self: center;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  color: white;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+}
+
+#nav-book-button {
+  border: 2px solid white;
+  background-color: rgb(55, 122, 0, 0);
+}
+
+.book-now {
+  background-color: rgb(55, 122, 0);
+  padding: 23px 28px;
+  border: 2px solid black;
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
+header > section {
+  width: 60%;
+  color: white;
+  align-self: center;
+  justify-self: center;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+header > section > p {
+  color: white;
+  font-size: 1.25em;
+}
+
+header > section > .book-now {
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  border: none;
+  margin-top: 35px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.villa-story {
+  width: 60%;
+  margin: 40px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.villa-story img {
+  width: 50%;
+  border-radius: 15px;
+  box-shadow: 30px 30px 0px 0px #d0ebcf;
+  margin: 20px;
+}
+
+.story-villa-article {
+  margin: 20px;
+  margin-left: 40px;
+  margin-right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.story-villa-article h2 {
+  font-size: 1.5em;
+}
+
+hr {
+  background-color: #9bbd80;
+  width: 15%;
+  height: 3px;
+  border: none;
+  margin: 10px 0px;
+}
+
+.offerings {
+  width: 100%;
+  background-color: #eaf7eb;
+}
+
+.villa-offering-article {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+  margin: 40px 10px;
+}
+
+#offerings-title {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+#first-block,
+#second-block {
+  margin: 40px;
+}
+
+#first-block > div,
+#second-block > div {
+  margin: 50px 0px;
+}
+
+#first-block div h3,
+#second-block div h3 {
+  margin-bottom: 0px;
+  margin-top: 40px;
+}
+
+#first-block div p,
+#second-block div p {
+  margin-top: 5px;
+}
+
+.learn-more-offerings {
+  color: #5f9436;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+#view-img {
+  border-bottom-left-radius: 150px;
+  box-shadow: -22px 22px 0px 0px #a2d3a1;
+  width: 100%;
+  margin: 5px;
+}
+
+#view-offerings div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#accomoditation-img {
+  border-bottom-right-radius: 150px;
+  box-shadow: 22px 22px 0px 0px #a2d3a1;
+  margin: 5px;
+}
+
+#pool-img {
+  border-top-left-radius: 150px;
+  box-shadow: -22px -22px 0px 0px #a2d3a1;
+  margin: 5px;
+}
+
+#playground-img {
+  border-top-right-radius: 150px;
+  box-shadow: 22px -22px 0px 0px #a2d3a1;
+  margin: 5px;
+}
+
+#pool-offerings {
+  margin-top: 10px;
+}
+
+#pool-offerings {
+  text-align: end;
+}
+
+#pool-offerings div h3,
+#playgrond-offerings div h3 {
+  margin-top: 15px;
+}
+
+.small-book-stay {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: center;
+  justify-self: center;
+  padding: 30px;
+}
+
+#full-width-hr {
+  width: 100%;
+  height: 1.5px;
+}
+
+.small-book-stay h3 {
+  font-weight: 400;
+  font-size: 1.75rem;
+}
