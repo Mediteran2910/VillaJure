@@ -256,21 +256,6 @@ main {
   font-size: 1.5em;
 }
 
-.villa-story.animate {
-  opacity: 1; /* Fade in */
-  transform: translateY(0); /* Move to normal position */
-}
-
-.villa-story img.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.story-villa-article.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* .villa-story {
   width: 60%;
   margin: 40px 10px;
@@ -300,6 +285,55 @@ main {
 .story-villa-article h2 {
   font-size: 1.5em;
 } */
+/* Set initial visibility and opacity for the divs and their children */
+#pool-offerings,
+#view-offerings,
+#playgrond-offerings,
+#accomoditation-offerings {
+  opacity: 0;
+  visibility: hidden; /* Initially hide the entire div */
+  transition: opacity 1.2s ease-out, visibility 0s 1.2s; /* Slower fade-in effect */
+}
+
+/* Animation for divs coming from the left */
+.animate-left {
+  animation: slideInFromLeft 1.5s ease-out forwards; /* Slower slide-in from left */
+}
+
+/* Animation for divs coming from the right */
+.animate-right {
+  animation: slideInFromRight 1.5s ease-out forwards; /* Slower slide-in from right */
+}
+
+/* Keyframes for left-side slide-in animation */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for right-side slide-in animation */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Reset visibility after animation completes */
+.animate-left,
+.animate-right {
+  visibility: visible !important; /* Make sure the element stays visible after the animation */
+}
 
 hr {
   background-color: #9bbd80;
@@ -528,6 +562,52 @@ hr {
   z-index: 1;
   transform: translateX(300px) scale(0.6);
   opacity: 0.5;
+}
+
+/* Animation for hr, h3, and p elements */
+/* Initial states for animation */
+.gallery-hr,
+.gallery-title,
+.gallery-description,
+.carousel-wrapper {
+  opacity: 0;
+  transform: translateY(20px); /* Slight downward offset */
+}
+
+/* Fading animation for hr, h3, and p elements */
+.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0); /* Moves element into its final position */
+  transition: opacity 2s ease, transform 2s ease; /* Slower animation */
+}
+
+/* Animation for the carousel wrapper */
+.animate-carousel {
+  opacity: 1;
+  transform: translateY(0); /* Moves element into its final position */
+  transition: opacity 2.5s ease, transform 2.5s ease; /* Slower animation */
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInCarousel {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Modal styling for enlarged image */
