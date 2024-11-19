@@ -180,3 +180,5 @@ const galleryObserver = new IntersectionObserver(
 galleryObserver.observe(galleryHr);
 galleryObserver.observe(galleryTitle);
 galleryObserver.observe(galleryParagraph);
+
+//comment for commit
