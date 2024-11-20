@@ -84,7 +84,7 @@ nav {
   display: inline-block;
   opacity: 0;
   transform: translateY(20px); /* Start from below */
-  animation: slideIn 1s ease-out forwards, pulse 2s infinite ease-in-out;
+  animation: slideIn 3s ease-out forwards, pulse 2s infinite ease-in-out;
 }
 
 /* Animation for sliding in from the bottom */
@@ -139,7 +139,7 @@ h1 {
   overflow: hidden; /* Ensures the text doesn't overflow */
   white-space: nowrap; /* Keeps text on one line */
   border-right: 3px solid transparent; /* Typing cursor hidden initially */
-  animation: typingH1 1.5s steps(28) forwards, blink 0.6s step-end infinite 1.5s;
+  animation: typingH1 2s steps(28) forwards, blink 0.6s step-end infinite 1.5s;
 }
 
 @keyframes typingH1 {
@@ -151,7 +151,7 @@ h1 {
   }
 }
 
-header > section > p {
+header section p {
   color: white;
   font-size: 1.25em;
   text-align: center;
@@ -159,7 +159,7 @@ header > section > p {
   white-space: nowrap;
   border-right: 3px solid transparent;
   width: 0; /* Start with width 0 so it's hidden */
-  animation: typingP 1.5s steps(47) 1.5s forwards,
+  animation: typingP 2s steps(47) 1.5s forwards,
     blink 0.6s step-end infinite 5.5s;
 }
 
@@ -221,8 +221,8 @@ main {
   box-shadow: 30px 30px 0px 0px #d0ebcf;
   margin: 20px;
   opacity: 0; /* Initially hidden */
-  transform: translateY(50px); /* Start from below */
-  animation: imageSlideIn 1s ease-out forwards; /* Animation */
+  transform: translateX(-150px); /* Start from below */
+  animation: imageSlideIn 2s ease-out forwards; /* Animation */
 }
 
 @keyframes imageSlideIn {
@@ -241,14 +241,27 @@ main {
   align-items: flex-start;
   justify-content: center;
   opacity: 0; /* Initially hidden */
-  transform: translateY(50px); /* Start from below */
-  animation: textSlideIn 1s ease-out forwards; /* Animation */
+  transform: translateX(150px); /* Start from below */
+  animation: textSlideIn 2s ease-out forwards; /* Animation */
 }
 
 @keyframes textSlideIn {
   to {
     opacity: 1; /* Fully visible */
     transform: translateY(0); /* Move to its normal position */
+  }
+}
+
+.story-villa-article hr {
+  opacity: 0;
+  transform: translateX(300px);
+  animation: hrSlideIn 0.75s ease-in-out forwards 2.05s;
+}
+
+@keyframes hrSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 
@@ -289,20 +302,21 @@ main {
 #pool-offerings,
 #view-offerings,
 #playgrond-offerings,
-#accomoditation-offerings {
+#accomoditation-offerings,
+#offerings-title {
   opacity: 0;
-  visibility: hidden; /* Initially hide the entire div */
-  transition: opacity 1.2s ease-out, visibility 0s 1.2s; /* Slower fade-in effect */
+  /* visibility: hidden; Initially hide the entire div */
+  transition: opacity 4s ease-in; /* Slower fade-in effect */
 }
 
 /* Animation for divs coming from the left */
 .animate-left {
-  animation: slideInFromLeft 1.5s ease-out forwards; /* Slower slide-in from left */
+  animation: slideInFromLeft 2s ease-out forwards; /* Slower slide-in from left */
 }
 
 /* Animation for divs coming from the right */
 .animate-right {
-  animation: slideInFromRight 1.5s ease-out forwards; /* Slower slide-in from right */
+  animation: slideInFromRight 2s ease-out forwards; /* Slower slide-in from right */
 }
 
 /* Keyframes for left-side slide-in animation */
@@ -329,11 +343,10 @@ main {
   }
 }
 
-/* Reset visibility after animation completes */
+/* Reset visibility after animation completes
 .animate-left,
 .animate-right {
   visibility: visible !important; /* Make sure the element stays visible after the animation */
-}
 
 hr {
   background-color: #9bbd80;
@@ -489,7 +502,7 @@ hr {
   height: auto;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s;
+  transition: transform 1s ease, opacity 1s ease, z-index 1s;
   opacity: 0;
   z-index: -1;
 }
@@ -498,7 +511,7 @@ hr {
   z-index: 10;
   transform: translateX(0) scale(1);
   opacity: 1;
-  transition: transform 0.3s ease;
+  transition: transform 1s ease;
 }
 
 .carousel-item.center:hover {
@@ -510,12 +523,14 @@ hr {
   z-index: 5;
   transform: translateX(-150px) scale(0.8);
   opacity: 0.7;
+  filter: brightness(40%);
 }
 
 .carousel-item.right {
   z-index: 5;
   transform: translateX(150px) scale(0.8);
   opacity: 0.7;
+  filter: brightness(40%);
 }
 
 .carousel-item.hidden {
@@ -556,12 +571,14 @@ hr {
   z-index: 1;
   transform: translateX(-300px) scale(0.6);
   opacity: 0.5;
+  filter: brightness(20%);
 }
 
 .carousel-item.far-right {
   z-index: 1;
   transform: translateX(300px) scale(0.6);
   opacity: 0.5;
+  filter: brightness(20%);
 }
 
 /* Animation for hr, h3, and p elements */
@@ -579,19 +596,22 @@ hr {
   opacity: 1;
   transform: translateY(0); /* Moves element into its final position */
   transition: opacity 2s ease, transform 2s ease; /* Slower animation */
+  animation: fadeInText 1.5s ease-in-out;
 }
 
 /* Animation for the carousel wrapper */
 .animate-carousel {
-  opacity: 1;
-  transform: translateY(0); /* Moves element into its final position */
+  opacity: 0;
+  transform: scaleX(0); /* Moves element into its final position */
+  transform-origin: center;
   transition: opacity 2.5s ease, transform 2.5s ease; /* Slower animation */
+  animation: openAnimation 2s ease-in forwards 1.2s;
 }
 
 @keyframes fadeInText {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(200px);
   }
   100% {
     opacity: 1;
@@ -599,16 +619,26 @@ hr {
   }
 }
 
-@keyframes fadeInCarousel {
+@keyframes openAnimation {
+  0% {
+    opacity: 0; /* Initially hidden */
+    transform: scaleX(0); /* Start with no width */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+    transform: scaleX(1); /* Scale to full width */
+  }
+}
+/* @keyframes fadeInCarousel {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(200px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 /* Modal styling for enlarged image */
 .modal {

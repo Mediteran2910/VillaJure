@@ -74,7 +74,7 @@ closeButton.addEventListener("click", () => {
 
 const offeringsTitle = document.querySelector("#offerings-title");
 const firstBlockParagraph = document.querySelector("#first-block p");
-const secondBlockParagraph = document.querySelector("#second-block p");
+const firstBlockHr = document.querySelector("#first-block hr");
 
 const firstBlockItems = [
   document.querySelector("#pool-offerings"),
@@ -90,7 +90,7 @@ const secondBlockItems = [
 const options = {
   root: null, // viewport
   rootMargin: "0px",
-  threshold: 0.1, // Trigger when 10% of the element is in view
+  threshold: 0.7, // Trigger when 10% of the element is in view
 };
 
 // Callback function to add animation classes
@@ -101,7 +101,7 @@ const observerCallback = (entries, observer) => {
       if (
         entry.target === offeringsTitle ||
         entry.target === firstBlockParagraph ||
-        entry.target === secondBlockParagraph
+        entry.target === firstBlockHr
       ) {
         entry.target.classList.add("animate-left");
       }
@@ -128,7 +128,7 @@ const observer = new IntersectionObserver(observerCallback, options);
 // Observe the elements
 observer.observe(offeringsTitle);
 observer.observe(firstBlockParagraph);
-observer.observe(secondBlockParagraph);
+observer.observe(firstBlockHr);
 
 firstBlockItems.forEach((item) => observer.observe(item));
 secondBlockItems.forEach((item) => observer.observe(item));
