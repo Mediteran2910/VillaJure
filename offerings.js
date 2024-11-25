@@ -71,3 +71,91 @@ carouselItems.forEach((item) => {
 closeButton.addEventListener("click", () => {
   modal.style.display = "none"; // Hide the modal
 });
+
+// Define the intersection observer options
+const options = {
+  threshold: 0.6, // 50% of the element must be visible to trigger the animation
+};
+
+// Function to add animation classes for various elements
+const handleIntersect = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Handling for articles
+      if (entry.target.classList.contains("offerings-description")) {
+        const image = entry.target.querySelector("img");
+        const text = entry.target.querySelector(".offerings-text");
+
+        if (
+          entry.target ===
+          document.querySelector(".offerings-description:nth-of-type(1)")
+        ) {
+          image.classList.add("slide-in-blurred-right");
+          text.classList.add("slide-in-blurred-left");
+        } else if (
+          entry.target ===
+          document.querySelector(".offerings-description:nth-of-type(2)")
+        ) {
+          image.classList.add("slide-in-blurred-left");
+          text.classList.add("slide-in-blurred-right");
+        } else if (
+          entry.target ===
+          document.querySelector(".offerings-description:nth-of-type(3)")
+        ) {
+          image.classList.add("slide-in-blurred-right");
+          text.classList.add("slide-in-blurred-left");
+        }
+      }
+
+      // Handling for icon-section
+      if (entry.target.classList.contains("icon-section")) {
+        entry.target.classList.add("focus-in-expand-fwd");
+      }
+
+      // Handling for gallery (hr, h3, p)
+      if (
+        entry.target.classList.contains("gallery-hr") ||
+        entry.target.classList.contains("gallery-title") ||
+        entry.target.classList.contains("gallery-description")
+      ) {
+        entry.target.classList.add("tracking-in-expand");
+      }
+
+      // Handling for carousel-wrapper
+      if (entry.target.classList.contains("carousel-wrapper")) {
+        entry.target.classList.add("scale-in-hor-center");
+      }
+
+      observer.unobserve(entry.target); // Stop observing once animation is triggered
+    }
+  });
+};
+
+// Create an intersection observer instance
+const observer = new IntersectionObserver(handleIntersect, options);
+
+// Target elements to observe
+const offeringsDescription1 = document.querySelector(
+  ".offerings-description:nth-of-type(1)"
+);
+const offeringsDescription2 = document.querySelector(
+  ".offerings-description:nth-of-type(2)"
+);
+const offeringsDescription3 = document.querySelector(
+  ".offerings-description:nth-of-type(3)"
+);
+const iconSection = document.querySelector(".icon-section");
+const hrElement = document.querySelector(".gallery-hr");
+const galleryTitle = document.querySelector(".gallery-title");
+const galleryDescription = document.querySelector(".gallery-description");
+const carouselWrapper = document.querySelector(".carousel-wrapper");
+
+// Start observing the elements
+observer.observe(offeringsDescription1);
+observer.observe(offeringsDescription2);
+observer.observe(offeringsDescription3);
+observer.observe(iconSection);
+observer.observe(hrElement);
+observer.observe(galleryTitle);
+observer.observe(galleryDescription);
+observer.observe(carouselWrapper);

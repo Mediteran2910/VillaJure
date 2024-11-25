@@ -90,7 +90,7 @@ const secondBlockItems = [
 const options = {
   root: null, // viewport
   rootMargin: "0px",
-  threshold: 0.7, // Trigger when 10% of the element is in view
+  threshold: 0.3, // Trigger when 10% of the element is in view
 };
 
 // Callback function to add animation classes
@@ -103,17 +103,17 @@ const observerCallback = (entries, observer) => {
         entry.target === firstBlockParagraph ||
         entry.target === firstBlockHr
       ) {
-        entry.target.classList.add("animate-left");
+        entry.target.classList.add("slide-in-blurred-left");
       }
 
       // For the first block
       if (firstBlockItems.includes(entry.target)) {
-        entry.target.classList.add("animate-left");
+        entry.target.classList.add("slide-in-blurred-left");
       }
 
       // For the second block
       if (secondBlockItems.includes(entry.target)) {
-        entry.target.classList.add("animate-right");
+        entry.target.classList.add("slide-in-blurred-right");
       }
 
       // Stop observing after the element has been animated
@@ -156,12 +156,12 @@ const galleryObserverCallback = (entries, observer) => {
         entry.target === galleryTitle ||
         entry.target === galleryParagraph
       ) {
-        entry.target.classList.add("animate-fade-in");
+        entry.target.classList.add("tracking-in-expand");
       }
 
-      // Animate the carousel wrapper after the above elements
+      // // Animate the carousel wrapper after the above elements
       if (entry.target === galleryParagraph) {
-        carouselWrapper.classList.add("animate-carousel");
+        carouselWrapper.classList.add("scale-in-hor-center");
       }
 
       // Stop observing after animation is added
@@ -180,5 +180,6 @@ const galleryObserver = new IntersectionObserver(
 galleryObserver.observe(galleryHr);
 galleryObserver.observe(galleryTitle);
 galleryObserver.observe(galleryParagraph);
+galleryObserver.observe(carouselWrapper);
 
 //comment for commit
